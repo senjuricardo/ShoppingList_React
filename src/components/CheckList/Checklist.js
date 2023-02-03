@@ -9,7 +9,7 @@ const CheckList = (props) => {
        alert('COMING IN NEXT RELEASE, BE PATIENT YOU IDIOT')
      };
     useEffect(() => {
-        const total = props.itemsList.reduce((acc = 0, item) => (acc + parseInt(item.price) * item.amount) , 0);
+        const total = props.itemsList.reduce((acc = 0, item) => (acc + parseFloatgitt(item.price) * item.amount) , 0);
         setSum(total);
       }, [props.itemsList]);
 
