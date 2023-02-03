@@ -34,7 +34,7 @@ const CheckList = (props) => {
                 ))}
             </ul>
         </div>
-            {Object.keys(props.itemsList).length !== 0 && <div className="totalDiv"><p className="total">TOTAL TO PAY: {sum}</p></div>}
+            {Object.keys(props.itemsList).length !== 0 && <div className="totalDiv"><p className="total">TOTAL TO PAY: {sum}€</p></div>}
         </div>
     )
 
