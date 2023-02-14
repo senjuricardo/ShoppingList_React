@@ -24,9 +24,29 @@ const CheckList = (props) => {
 
     return (
         <>
-            <div className="Checklist">
+            <table className="Checklist">
+                <thead className="ChecklistHeader">
+                    {Object.keys(props.itemsList).length !== 0 && <tr> 
+                         <th className="firstTh">Name</th>
+                        <th className="th">Amount</th>
+                        <th className="th">Price/item</th>
+                        <th className="th">Actions</th>
+                    </tr>}
+
+                </thead>
+            <tbody>
+        {props.itemsList.map((item, index) => (
+            <tr key={index}>
+            <td className="firstTd">{item.item}</td>
+            <td className="td">{item.amount}</td>
+            <td className="td">{item.price}</td>
+            <td className="td"><button className="button3" onClick={() => deleteItem(index)}>DELETE</button></td>
+          </tr>
+        ))}
+      </tbody>
+        </table>
+            {/* <div className="Checklist">
                 {Object.keys(props.itemsList).length !== 0 && <div className="headerList"><h3>ITEM</h3><h3>AMOUNT</h3><h3>PRICE/unit</h3></div>}
-                {/* <button onClick={handleClick}>click me</button> */}
                 <ul >
                     {props.itemsList.map((item, index) => (
                         <li className="bodyList" key={index}>
@@ -40,7 +60,8 @@ const CheckList = (props) => {
                     ))}
 
                 </ul>
-            </div>
+            </div> */}
+            
             {Object.keys(props.itemsList).length !== 0 && <div className="totalDiv"><p className="total">TOTAL TO PAY: {sum}€</p></div>}
         </>
     )

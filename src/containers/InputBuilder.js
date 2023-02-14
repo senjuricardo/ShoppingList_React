@@ -7,7 +7,8 @@ const InputBuilder = () => {
     const [ListItems, setListItems] = useState([])
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
-    const [data, setData] = useState(null);
+    const [data, setData] = useState([]);
+    const [isFormDisabled, setIsFormDisabled] = useState(false);
 
 
     const handleChange = (event) => {
@@ -16,8 +17,8 @@ const InputBuilder = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        if (!formData.price || formData.price < 0) {
-            alert('please insert a price')
+        if (!formData.price || formData.price < 0 || !formData.amount || formData.amount <= 0) {
+            alert('please fill all fields')
         }
         else {
             const sameItem = ListItems.findIndex(item => item.item === formData.item);
@@ -40,8 +41,7 @@ const InputBuilder = () => {
         fetch("https://dummyjson.com/products")
             .then((response) => response.json())
             .then((result) => {
-                console.log(result)
-                setData(result);
+                setData(result.products);
                 setLoading(false);
             })
             .catch((error) => {
@@ -52,30 +52,44 @@ const InputBuilder = () => {
 
     if (loading) {
         return <div>Loading...</div>;
-      }
-      if (error) {
+    }
+    if (error) {
         return <div>An error occurred: {error.message}</div>;
-      }
+    }
     return (
-        <div >
+        <>
+        <div className="InputBuilder">
+            <div className="input">
+                <label className="cool-label">Items</label>
+                <select className="cool-form" value={data.title} onChange={event => {
+                    console.log(event)
+                    setFormData({
+                        ...formData,
+                        item: event.target.options[event.target.selectedIndex].text,
+                        price: event.target.value,
+                    });
+                }}>
+                    {data.map(item => (
+                        <option key={item.id} value={item.price}>{item.title}</option>
+                    ))}
+                </select>
+            </div>
+                
             
             <form className="InputBuilder" onSubmit={handleSubmit}>
                 <div className="input">
-                    <label>Item</label>
-                    <input type="text" name="item" value={formData.item} onChange={handleChange} placeholder="Insert an item" />
+                    <label className="cool-label">Amount</label>
+                    <input className="cool-form" type="number" name="amount" value={formData.amount} onChange={handleChange} placeholder="Insert an amount" />
                 </div>
                 <div className="input">
-                    <label>Amount</label>
-                    <input type="number" name="amount" value={formData.amount} onChange={handleChange} placeholder="Insert an amount" />
-                </div>
-                <div className="input">
-                    <label>Price item</label>
-                    <input type="number" name="price" value={formData.price} onChange={handleChange} placeholder="Insert a prince of an item" />
+                    <label className="cool-label">Price item</label>
+                    <input className="cool-form" type="number" name="price" disabled="false" value={formData.price} onChange={handleChange} placeholder="Insert a prince of an item" />
                 </div>
                 <button type="submit" className="glow-on-hover">Submit</button>
             </form>
-            <CheckList itemsList={ListItems} setListItems={setListItems} />
         </div>
+            <CheckList itemsList={ListItems} setListItems={setListItems} />
+        </>
     );
 
 }

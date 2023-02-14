@@ -3,6 +3,30 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-collapse: separate;
+   border-spacing: 20px;
+}
+
+.th{
+  padding: 0px 20px;
+ 
+}
+
+.td{
+  padding: 0px 40px;
+  
+}
+.firstTh{
+  padding: 0px 100px;
+
+}
+.firstTd{
+  margin: 0px 40px;
+}
+
+.ChecklistHeader{
+  margin: 20px;
+  padding: 20px;
 }
 
 .Checklist ul{
