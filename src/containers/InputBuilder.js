@@ -18,7 +18,7 @@ const InputBuilder = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
         if (!formData.price || formData.price < 0 || !formData.amount || formData.amount <= 0) {
-            alert('please fill all fields')
+            alert('please fill all fields with proper information')
         }
         else {
             const sameItem = ListItems.findIndex(item => item.item === formData.item);
