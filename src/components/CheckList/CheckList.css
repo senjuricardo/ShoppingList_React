@@ -7,26 +7,30 @@
    border-spacing: 20px;
 }
 
-.th{
-  padding: 0px 20px;
- 
+table {
+  border-collapse: collapse;
+  width: 100%;
 }
 
-.td{
-  padding: 0px 40px;
+th, td {
+  text-align: left;
+  padding: 8px;
+
   
 }
-.firstTh{
-  padding: 0px 100px;
+td {
+  min-width: 100px;
+  max-width: 100px;
+  overflow: auto;
+}
+th {
+  min-width: 100px;
+}
 
-}
-.firstTd{
-  margin: 0px 40px;
-}
 
 .ChecklistHeader{
   margin: 20px;
-  padding: 20px;
+  padding: 0px;
 }
 
 .Checklist ul{

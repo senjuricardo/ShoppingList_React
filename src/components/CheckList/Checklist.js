@@ -36,8 +36,8 @@ const CheckList = (props) => {
                 </thead>
             <tbody>
         {props.itemsList.map((item, index) => (
-            <tr key={index}>
-            <td className="firstTd">{item.item}</td>
+            <tr key={index} className="td">
+            <td className="firstTh">{item.item}</td>
             <td className="td">{item.amount}</td>
             <td className="td">{item.price}</td>
             <td className="td"><button className="button3" onClick={() => deleteItem(index)}>DELETE</button></td>
