@@ -74,3 +74,38 @@ th {
     justify-content: center;
     margin-left: 200px;
   }
+
+
+  @media only screen and (max-width: 600px) {
+    /* Hide the table header row on smaller screens */
+    thead {
+      display: none;
+     
+    }
+    .tbody{
+      margin-top: 10px;
+    }
+    
+    /* Make each row of the table display as a block, rather than a table row */
+    tbody tr {
+      display: block;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+    }
+    
+    /* Style the cells in each row */
+    tbody td {
+      display: block;
+      text-align: center;
+      font-size: 13px;
+    }
+    
+    /* Add a background color to the cells in the first column */
+    tbody td:before {
+      content: attr(data-title);
+      display: inline-block;
+      font-weight: bold;
+      margin-right: 10px;
+    }
+  }
+  

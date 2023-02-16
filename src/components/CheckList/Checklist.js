@@ -34,7 +34,7 @@ const CheckList = (props) => {
                     </tr>}
 
                 </thead>
-            <tbody>
+            <tbody className="tbody">
         {props.itemsList.map((item, index) => (
             <tr key={index} className="td">
             <td className="firstTh">{item.item}</td>

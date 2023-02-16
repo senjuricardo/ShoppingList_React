@@ -83,7 +83,7 @@ const InputBuilder = () => {
                 </div>
                 <div className="input">
                     <label className="cool-label">Price item</label>
-                    <input className="cool-form" type="number" name="price" disabled="false" value={formData.price} onChange={handleChange} placeholder="Insert a prince of an item" />
+                    <input className="cool-form" type="number" name="price" disabled="false" value={formData.price} onChange={handleChange} />
                 </div>
                 <button type="submit" className="glow-on-hover">Submit</button>
             </form>
