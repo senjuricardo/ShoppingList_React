@@ -32,6 +32,7 @@ const InputBuilder = () => {
                 setListItems([...ListItems, formData]);
             }
             setFormData({ item: '', amount: '', price: '' });
+            document.getElementById('product-select').value = ''
         }
 
     };
@@ -61,7 +62,7 @@ const InputBuilder = () => {
         <div className="InputBuilder">
             <div className="input">
                 <label className="cool-label">Items</label>
-                <select className="cool-form" value={data.title} onChange={event => {
+                <select id="product-select" className="cool-form" value={data.title} onChange={event => {
                     console.log(event)
                     setFormData({
                         ...formData,
@@ -69,6 +70,7 @@ const InputBuilder = () => {
                         price: event.target.value,
                     });
                 }}>
+                    <option value="">Choose your product</option>
                     {data.map(item => (
                         <option key={item.id} value={item.price}>{item.title}</option>
                     ))}
